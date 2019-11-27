@@ -18,9 +18,12 @@ def coup_legaux(pièce,pos):
     res=[]
     if pièce == 'pion': #Retourner les différents coups légaux pour un pion
         """
-        il suffit de faire x+1 (attention cela n'est pas vrai pour l'ouverture)
+        il suffit de faire x+1 (attention cela n'est pas vrai pour l'ouverture )
         """
-        return [x+1,y]
+        res.append([x+1,y])
+        res.append([x+1,y+1])
+        res.append([x+1,y-1])
+        return res
     if pièce == 'tour': #Retourner les différents coups légaux pour une tour
         """
         On retourne toute les coord. de toute la ligne et de toute la colonne de la pos actuelle de la tour
