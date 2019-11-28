@@ -46,6 +46,27 @@ def get_Piece(pos,echiquier):
     y=pos[1]
     return echiquier[y][x] 
 
+def get_NomPiece(pos,echiquier):
+    """
+    get piece(List[int,int],List[List[String]])
+    -> return string 
+    
+    renvoie le nom de la pièce qui est sur la position donnée en paramètre
+    """
+    piece=get_Piece(pos,echiquier)
+    if 'T' in piece :
+        return 'tour'
+    elif 'C' in piece:
+        return 'cavalier'
+    elif 'F' in piece:
+        return 'fou'
+    elif 'D' in piece:
+        return 'dame'
+    elif 'P' in piece:
+        return 'pion'
+    elif 'R' in piece:
+        return 'roi'
+
 def get_Couleur(pos,echiquier):
     """
     get_Couleur(List[int,int],List[List[String]])
@@ -60,41 +81,6 @@ def get_Couleur(pos,echiquier):
     else :
         return 'Blanc'
     
-
-def get_Coups(pos,echiquier):
-    """
-    get_Coups(List[int,int],List[List[String]])
-    -> return List
-    
-    retourne tous les coups d'un piece en donnant les coord. de celle-ci 
-    ATTENTION : ne gère pas les collisions et les blocages
-    """
-    x=pos[0]
-    y=pos[1]
-    piece=''
-    couleur = get_Couleur([x,y],echiquier)
-    if couleur == 'Noir' :
-        place_dispo=get_placesDispo_Noirs(echiquier)
-    else : 
-        place_dispo=get_placesDispo_Blancs(echiquier)
-    if get_Piece([x,y],echiquier) == 'Pn' or get_Piece([x,y],echiquier) == 'Pb':
-        piece='pion'
-    elif get_Piece([x,y],echiquier) == 'Tn' or get_Piece([x,y],echiquier) == 'Tb':   
-        piece='tour'
-    elif get_Piece([x,y],echiquier) == 'Cn' or get_Piece([x,y],echiquier) == 'Cb':   
-        piece='cavalier'
-    elif get_Piece([x,y],echiquier) == 'Fn' or get_Piece([x,y],echiquier) == 'Fb':   
-        piece='fou'
-    elif get_Piece([x,y],echiquier) == 'Rn' or get_Piece([x,y],echiquier) == 'Rb':   
-        piece='roi'
-    elif get_Piece([x,y],echiquier) == 'Dn' or get_Piece([x,y],echiquier) == 'Db':   
-        piece='dame'
-    print(piece)
-    if piece!='' :
-        inter = [value for value in mcl.coup_legaux(piece,[x,y],couleur) if value in place_dispo] 
-        return inter
-    else :
-        return None
 
 def get_placesDispo_Blancs(echiquier):
     """
