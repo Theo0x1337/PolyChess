@@ -4,7 +4,8 @@ Created on Wed Nov 27 14:38:48 2019
 
 @author: 33762
 """
- 
+
+#!!!On ne l'utilise plus dans le projet!!!
 
 def coup_legaux(pièce,pos,couleur):
     """
