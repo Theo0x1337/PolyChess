@@ -6,7 +6,6 @@ Created on Wed Nov 27 17:13:20 2019
 
 Pour la représentation on a choisi de commencer avec quelque chose de simple
 """
-import moteur_coups_legaux8_8 as mcl
 
 
 def affichage(echiquier):
@@ -16,6 +15,7 @@ def affichage(echiquier):
     
     affiche l'échiquier dans la console python 
     en donnant les différentes lignes de haut en bas en paramètre
+    WORK
     """
     c=['0 ','1 ','2 ','3 ','4 ','5 ','6 ','7 ']
     tab=['a','z','e','r','t','y','u','i']
@@ -41,6 +41,7 @@ def get_Piece(pos,echiquier):
     -> return string
     
     renvoie la pièce qui est sur la position donnée en paramètre 
+    WORK
     """
     x=pos[0]
     y=pos[1]
@@ -52,6 +53,7 @@ def get_NomPiece(pos,echiquier):
     -> return string 
     
     renvoie le nom de la pièce qui est sur la position donnée en paramètre
+    WORK
     """
     piece=get_Piece(pos,echiquier)
     if 'T' in piece :
@@ -73,6 +75,7 @@ def get_Couleur(pos,echiquier):
     -> return string
     
     retourne la couleur d'une pièce en donnant les coord. de celle-ci'
+    WORK
     """
     x=pos[0]
     y=pos[1]
@@ -89,6 +92,7 @@ def get_placesDispo_Blancs(echiquier):
     
     Cette fonction retourne toutes les places libres pour les blancs
     on considérant les places occupés par les noirs comme disponibles 
+    WORK
     """
     res=[]
     blancs=['Pb','Tb','Cb','Fb','Rb','Db']
@@ -105,6 +109,7 @@ def get_placesDispo_Noirs(echiquier):
     
     Cette fonction retourne toutes les places libres pour les noirs
     on considérant les places occupés par les blancs comme disponibles 
+    WORK
     """
     res=[]
     noirs=['Pn','Tn','Cn','Fn','Rn','Dn']
