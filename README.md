@@ -11,7 +11,7 @@ Si le Roi ne peut parer l’échec, il perd la partie, puisqu’il est échec et
 
 ### Déplacement des pièces 
 
-  #### pion :
+  #### pion :+1: :
   
 ![](img/deplacement-pion.png)
 
@@ -53,6 +53,13 @@ Conditions :
   #### La Prise en passant 
 Un pion peut capturer un pion adverse (de colonne adjacente), si celui-ci saute deux cases, comme s’il n’avait avancé que d’une case. On dit que ce pion prend le pion ennemi “en passant”.
 
+
+
+
+
+### Déroulement d'une partie
+
+Vous pourrez jouer contre un ordinateur aux échecs. Vous commencerez la partie, qui se déroulera tour par tour, la partie se finit lorsque l'un de vous est échec et mat ou que son compteur de temps est a 0.
 
 
 ### Comment utiliser notre programme ? 
