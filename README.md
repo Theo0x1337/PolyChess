@@ -11,14 +11,20 @@ Si le Roi ne peut parer l’échec, il perd la partie, puisqu’il est échec et
 
 ### Déplacement des pièces 
 
-> pion 
+  pion : 
 ![](img/deplacement-pion.png)
-> cavalier
 
-> fou
+  cavalier :
+![](img/deplacement-cavalier.png)
 
-> tour
+  fou :
+![](img/deplacement-fou.png)
 
-> dame 
+  tour :
+![](img/deplacement-tour.png)
 
-> roi
+  dame :
+![](img/deplacement-dame.png)
+
+  roi :
+![](img/deplacement-roi.png)
