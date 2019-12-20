@@ -12,7 +12,7 @@ Si le Roi ne peut parer l’échec, il perd la partie, puisqu’il est échec et
 ### Déplacement des pièces 
 
 > pion 
-
+![](img/deplacement-pion.png)
 > cavalier
 
 > fou
