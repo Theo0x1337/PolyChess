@@ -52,3 +52,13 @@ Conditions :
 
   #### La Prise en passant 
 Un pion peut capturer un pion adverse (de colonne adjacente), si celui-ci saute deux cases, comme s’il n’avait avancé que d’une case. On dit que ce pion prend le pion ennemi “en passant”.
+
+
+
+### Comment utiliser notre programme ? 
+  
+  Pour se faire il suffit de réaliser ces actions : 
+        - cloner le dépot du projet en local sur votre machine 
+       
+
+
