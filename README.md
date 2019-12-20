@@ -57,8 +57,11 @@ Un pion peut capturer un pion adverse (de colonne adjacente), si celui-ci saute 
 
 ### Comment utiliser notre programme ? 
   
-  Pour se faire il suffit de réaliser ces actions : 
+  Pour se faire il suffit de réaliser ces actions :
+  
         - cloner le dépot du projet en local sur votre machine 
+        
+        
        
 
 
