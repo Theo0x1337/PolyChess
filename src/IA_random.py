@@ -64,9 +64,11 @@ def ia_select_dep(echiquier):
 
 def deplacement_ia(echiquier):
     selected=ia_select_dep(echiquier)
-    ech.deplacement(echiquier,selected[0][0],selected[0][1],selected[1][0],selected[1][1])
+    print("depart : "+str(selected[1][0])+","+str(selected[1][1]))
+    print("arrivee : "+str(selected[0][0])+","+str(selected[0][1]))
+    ech.deplacement(echiquier,selected[1][0],selected[1][1],selected[0][0],selected[0][1])
     return echiquier
 
-
+#ici j'ai regler le problème en fait le selected[1] = depart et le 0 = arrivée
 
 
