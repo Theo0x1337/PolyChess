@@ -153,7 +153,15 @@ def choisiDeplacement(echiquier):
     if choix == 0:
         choisiDeplacement(echiquier) 
     position_arrivee = coups_possibles[choix-1]
+    deplacement(echiquier,x,y,position_arrivee[0],position_arrivee[1])
+    affichage(echiquier)
     #A faire assoscier le choix a un déplacement et appeler la fonction de déplacement du gourmand !! 
+    
+def deplacement(echiquier,x_dep,y_dep,x_arr,y_arr):
+    pion_d = echiquier[y_dep][x_dep]
+    echiquier[y_arr][x_arr] = pion_d
+    echiquier[y_dep][x_dep] = "**"
+    
     
 def afficherCoupsPossibles(coups_possibles):
     print('0=>Annuler')
