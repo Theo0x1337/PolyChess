@@ -54,8 +54,34 @@ Conditions :
 Un pion peut capturer un pion adverse (de colonne adjacente), si celui-ci saute deux cases, comme s’il n’avait avancé que d’une case. On dit que ce pion prend le pion ennemi “en passant”.
 
 
+### Interface du jeu d'échecs
 
+![](img/interface.png)
 
+Ci-dessus vous pouvez voir l'interface de notre jeu d'échecs. Elle se décline sous forme console, avec une représentation de pièces avec une chaîne de caractères, par exemple la châine "Tn" représente la tour noire, la chaîne "Tb" réprésente la tour blanche. 
+Comme vous l'avez compris la première lettre définie le type de pièce et la deuxième sa couleur. 
+
+b : blanc
+n : noir
+
+P : pion
+T : tour
+C : cavalier
+F : fou
+D : dame
+R : roi
+
+Il faudra ensuite que vous sélectionnez une pièce en rentrant ses coordonnées (x,y) : par exemple si vous voulez bougez le pion en (0;1) du plateau vous devrez taper dans la console 0 puis 1 de cette manière :
+
+![](img/interfacePionSelec.png)
+
+Puis le programme vous affiche la liste des déplacements disponibles pour cette pièce comme suit : 
+
+![](img/interfacePionSelecPossibi.png)
+
+Il faudra alors séléctionner un déplacement en entrant le chiffre correspondant à celui-ci, ici on choisit de le faire avancer d'une case, on entre donc la valeur  , et l'affichage de l'échiquier est mis à jour :
+
+![](img/echiquierAJour.png)
 
 ### Déroulement d'une partie
 
