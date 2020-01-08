@@ -6,6 +6,7 @@ Created on Wed Jan  8 10:57:54 2020
 """
 import random
 import moteur_blocage as mb
+import echiquier as ech
 
 
 def ia_select_dep(echiquier):
@@ -59,10 +60,13 @@ def ia_select_dep(echiquier):
             else:
                 return random.choice(mb.coups_possibles_cavalier(pos_dep,echiquier,"Noir")),pos_dep
             
+        
+
+def deplacement_ia(echiquier):
+    ech.deplacement(echiquier,ia_select_dep()[0][0],ia_select_dep()[0][1],ia_select_dep()[1][0],ia_select_dep()[1][1])
+    return echiquier
     
-    
-    
-print(ia_select_dep()[0])
+
 
 
 
