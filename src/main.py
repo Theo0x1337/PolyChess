@@ -23,7 +23,7 @@ while finPartie == False:
     finPartie = print(api.testFDP(FEN))
     
     if finPartie == False:
-        ia.ia_select_dep(echiquier)
+        ia.deplacement_ia(echiquier)
         ech.affichage(echiquier)
         FEN = ech.generatorFEN(echiquier)
         finPartie = print(api.testFDP(FEN))
