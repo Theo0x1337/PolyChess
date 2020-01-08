@@ -62,24 +62,30 @@ Ci-dessus vous pouvez voir l'interface de notre jeu d'échecs. Elle se décline 
 Comme vous l'avez compris la première lettre définie le type de pièce et la deuxième sa couleur. 
 
 b : blanc
+
 n : noir
 
 P : pion
+
 T : tour
+
 C : cavalier
+
 F : fou
+
 D : dame
+
 R : roi
 
 Il faudra ensuite que vous sélectionnez une pièce en rentrant ses coordonnées (x,y) : par exemple si vous voulez bougez le pion en (0;1) du plateau vous devrez taper dans la console 0 puis 1 de cette manière :
 
 ![](img/interfacePionSelec.png)
 
-Puis le programme vous affiche la liste des déplacements disponibles pour cette pièce comme suit : 
+Puis le programme vous affiche la liste des déplacements disponibles en affichant les possitions d'arrivée possibles pour cette pièce comme suit : 
 
 ![](img/interfacePionSelecPossibi.png)
 
-Il faudra alors séléctionner un déplacement en entrant le chiffre correspondant à celui-ci, ici on choisit de le faire avancer d'une case, on entre donc la valeur  , et l'affichage de l'échiquier est mis à jour :
+Il faudra alors séléctionner un déplacement en entrant le chiffre correspondant à celui-ci, ici on choisit de le faire avancer d'une case, on entre donc la valeur 1, et l'affichage de l'échiquier est mis à jour :
 
 ![](img/echiquierAJour.png)
 
