@@ -9,10 +9,11 @@ Created on Wed Jan  8 16:01:23 2020
 import requests
 
 
-
-def set_resp(self,string):
-    urlFen = 'tablebase.lichess.ovh/standard?fen='+string
+def testFDP(string):
+    urlFen = 'https://tablebase.lichess.ovh/standard?fen='+string
     resp = requests.get(urlFen)
-    return resp
+    return (resp.json()['checkmate'])
 
 
+
+    
