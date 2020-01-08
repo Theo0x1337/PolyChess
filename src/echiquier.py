@@ -227,7 +227,6 @@ def generatorFEN(echiquier):
                 ends[i] = 99
         endEmpty = min(ends)
         fenIntermediaire = fenIntermediaire[:startEmpty] + str(endEmpty-startEmpty) + fenIntermediaire[endEmpty:len(fenIntermediaire)]
-    print(fenIntermediaire)
     return fenIntermediaire
   
   
