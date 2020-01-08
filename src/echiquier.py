@@ -183,3 +183,56 @@ def demandeUtilisateurPosition():
     while y > 7 or y < 0 : 
         y = int(input("Y : "))
     return x,y
+
+def generatorFEN(echiquier):
+    fen = ""
+    for ligne in echiquier:
+        for case in ligne:
+            if case == "Tn":
+                fen = fen + "r"
+            if case == "Tb":
+                fen = fen + "R"
+            if case == "Cn":
+                fen = fen + "n"
+            if case == "Cb":
+                fen = fen + "N"
+            if case == "Fn":
+                fen = fen + "b"
+            if case == "Fb":
+                fen = fen + "B"
+            if case == "Dn":
+                fen = fen + "q"
+            if case == "Db":
+                fen = fen + "Q"
+            if case == "Rn":
+                fen = fen + "k"
+            if case == "Rb":
+                fen = fen + "K"
+            if case == "Pn":
+                fen = fen + "p"
+            if case == "Pb":
+                fen = fen + "P"
+            if case == "**":
+                fen = fen + "0"
+        fen = fen + "/"
+    fenIntermediaire = fen[:-1]
+    lettres = ['r','R','n','N','b','B','q','Q','k','K','p','P','/']
+    while fenIntermediaire.find('0') != -1:
+        startEmpty = fenIntermediaire.find('0')
+        ends = []
+        for lettre in lettres:
+            ends.append(fenIntermediaire.find(lettre,startEmpty))
+        for i in range(0,len(ends)):
+            if ends[i] == -1:
+                ends[i] = 99
+        endEmpty = min(ends)
+        fenIntermediaire = fenIntermediaire[:startEmpty] + str(endEmpty-startEmpty) + fenIntermediaire[endEmpty:len(fenIntermediaire)]
+    print(fenIntermediaire)
+    return fenIntermediaire
+  
+  
+    
+    
+    
+    
+    

@@ -14,6 +14,6 @@ import echiquier as ech
 echiquier=ech.initialiseEchiquier()
 ech.affichage(echiquier)
 ech.choisiDeplacement(echiquier)
-
+FEN = ech.generatorFEN(echiquier)
 
 
