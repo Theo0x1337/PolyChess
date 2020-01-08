@@ -232,10 +232,12 @@ def coups_possibles_pion(pos,echiquier,couleur):
             if place_dispo(coup,echiquier,couleur) == 'Vide': #le pion ne peut manger que en diagonal c'est pour cela que la case doit être vide
                 res.append(coup)
         #Si un ennemi se trouve sur la case diagonal la plus proche alors il peut le manger
-        if place_dispo([x+1,y-1],echiquier,couleur) == 'Ennemi' and x!=7 :
-            res.append([x+1,y-1])
-        if place_dispo([x-1,y-1],echiquier,couleur) == 'Ennemi' and x!=0:
-            res.append([x-1,y-1])
+        if x!=7:
+            if place_dispo([x+1,y-1],echiquier,couleur) == 'Ennemi':
+                res.append([x+1,y-1])
+        if x!=0:
+            if place_dispo([x-1,y-1],echiquier,couleur) == 'Ennemi':
+                res.append([x-1,y-1])
     else : #Si le pion est noir
         coups.append([x,y+1])
         if y == 1 and place_dispo([x,y+1],echiquier,couleur) == 'Vide': #Si le pion est sur sa position initial et qu'il n'est pas bloquer alors il peut avancer de deux cases 
@@ -244,10 +246,12 @@ def coups_possibles_pion(pos,echiquier,couleur):
             if place_dispo(coup,echiquier,couleur) == 'Vide': #le pion ne peut manger que en diagonal c'est pour cela que la case doit être vide
                 res.append(coup)
         #Si un ennemi se trouve sur la case diagonal la plus proche alors il peut le manger
-        if place_dispo([x+1,y+1],echiquier,couleur) == 'Ennemi' and x!=7:
-            res.append([x+1,y+1])
-        if place_dispo([x-1,y+1],echiquier,couleur) == 'Ennemi' and x!=0:
-            res.append([x-1,y+1])
+        if x!=7:
+            if place_dispo([x+1,y+1],echiquier,couleur) == 'Ennemi':
+                res.append([x+1,y+1])
+        if x!=0:
+            if place_dispo([x-1,y+1],echiquier,couleur) == 'Ennemi':
+                res.append([x-1,y+1])
     return res
     
     

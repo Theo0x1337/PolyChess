@@ -6,7 +6,7 @@ Created on Wed Nov 27 17:13:20 2019
 
 Pour la représentation on a choisi de commencer avec quelque chose de simple
 """
-
+import moteur_blocage as mb
 
 def affichage(echiquier):
     """
@@ -118,3 +118,60 @@ def get_placesDispo_Noirs(echiquier):
             if echiquier[i][j] not in noirs:
                 res.append([j,i])
     return res
+
+def initialiseEchiquier():
+    a=['Tn','Cn','Fn','Dn','Rn','Fn','Cn','Tn']
+    z=['Pn','Pn','Pn','Pn','Pn','Pn','Pn','Pn']
+    e=['**','**','**','**','**','**','**','**']
+    r=['**','**','**','**','**','**','**','**']
+    t=['**','**','**','**','**','**','**','**']
+    y=['**','**','**','**','**','**','**','**']
+    u=['Pb','Pb','Pb','Pb','Pb','Pb','Pb','Pb']
+    i=['Tb','Cb','Fb','Db','Rb','Fb','Cb','Tb']
+    echiquier=[a,z,e,r,t,y,u,i]
+    return echiquier
+    
+def choisiDeplacement(echiquier):
+    coups_possibles = []
+    while coups_possibles == []:
+        x,y=demandeUtilisateurPosition()
+        nom=get_NomPiece([x,y],echiquier)
+        if nom=='pion' :
+            coups_possibles = mb.coups_possibles_pion([x,y],echiquier,get_Couleur([x,y],echiquier))
+        elif nom=='cavalier':
+            coups_possibles = mb.coups_possibles_cavalier([x,y],echiquier,get_Couleur([x,y],echiquier))
+        elif nom=='tour':
+            coups_possibles = mb.coups_possibles_tour([x,y],echiquier,get_Couleur([x,y],echiquier))
+        elif nom=='fou':
+            coups_possibles = mb.coups_possibles_fou([x,y],echiquier,get_Couleur([x,y],echiquier))
+        elif nom=='dame':
+            coups_possibles = mb.coups_possibles_dame([x,y],echiquier,get_Couleur([x,y],echiquier))   
+        elif nom=='roi':
+            coups_possibles = mb.coups_possibles_roi([x,y],echiquier,get_Couleur([x,y],echiquier))
+    nbCoup=afficherCoupsPossibles(coups_possibles)
+    choix=demanderChoixUtilisateur(nbCoup)
+    if choix == 0:
+        choisiDeplacement(echiquier) 
+    position_arrivee = coups_possibles[choix-1]
+    #A faire assoscier le choix a un déplacement et appeler la fonction de déplacement du gourmand !! 
+    
+def afficherCoupsPossibles(coups_possibles):
+    print('0=>Annuler')
+    for i in range(0,len(coups_possibles)):
+        print(str(i+1)+'=>'+str(coups_possibles[i][0])+'-'+str(coups_possibles[i][1]))
+    return i
+
+def demanderChoixUtilisateur(coups_possibles):
+    choix = 999
+    while(choix>coups_possibles+1 or choix<0):
+        choix = int(input("Choisir : ")) #!!! si on rentre un string ca plante il faut régler ca
+    return choix
+
+def demandeUtilisateurPosition():
+    x=99
+    y=99
+    while x > 7 or x < 0 : 
+        x = int(input("X : "))
+    while y > 7 or y < 0 : 
+        y = int(input("Y : "))
+    return x,y
