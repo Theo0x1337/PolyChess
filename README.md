@@ -81,7 +81,7 @@ Il faudra ensuite que vous sélectionnez une pièce en rentrant ses coordonnées
 
 ![](img/interfacePionSelec.png)
 
-Puis le programme vous affiche la liste des déplacements disponibles pour cette pièce comme suit : 
+Puis le programme vous affiche la liste des déplacements disponibles en affichant les possitions d'arrivée possibles pour cette pièce comme suit : 
 
 ![](img/interfacePionSelecPossibi.png)
 
