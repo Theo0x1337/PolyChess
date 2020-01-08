@@ -13,14 +13,16 @@ import IA_random as ia
 
 
 finPartie = False
+echiquier=ech.initialiseEchiquier()
 
 while finPartie == False:
 
-    echiquier=ech.initialiseEchiquier()
     ech.affichage(echiquier)
     ech.choisiDeplacement(echiquier)
     FEN = ech.generatorFEN(echiquier)
-    finPartie = print(api.testFDP(FEN))
+    finPartie = api.testFDP(FEN)
+    
+    print(finPartie)
     
     if finPartie == False:
         ia.deplacement_ia(echiquier)
