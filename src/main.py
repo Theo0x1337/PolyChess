@@ -6,7 +6,7 @@ Created on Thu Nov 28 16:51:47 2019
 """
 
 import echiquier as ech
-
+import apiSyzygy as api
 #pieces blanches : Pb Cb Fb Tb Rb Db
 #pieces noires : Pn Cn Fn Tn Rn Dn
 
@@ -15,5 +15,5 @@ echiquier=ech.initialiseEchiquier()
 ech.affichage(echiquier)
 ech.choisiDeplacement(echiquier)
 FEN = ech.generatorFEN(echiquier)
-
+print(api.testFDP(FEN))
 
