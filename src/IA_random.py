@@ -63,7 +63,8 @@ def ia_select_dep(echiquier):
         
 
 def deplacement_ia(echiquier):
-    ech.deplacement(echiquier,ia_select_dep()[0][0],ia_select_dep()[0][1],ia_select_dep()[1][0],ia_select_dep()[1][1])
+    selected=ia_select_dep(echiquier)
+    ech.deplacement(echiquier,selected[0][0],selected[0][1],selected[1][0],selected[1][1])
     return echiquier
     
 
