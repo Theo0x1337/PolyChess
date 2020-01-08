@@ -7,20 +7,8 @@ Created on Wed Jan  8 10:57:54 2020
 import random
 import moteur_blocage as mb
 
-a=['Tn','Cn','Fn','Dn','Rn','Fn','Cn','Tn']
-z=['Pn','Pn','Pn','Pn','Pn','Pn','Pn','Pn']
-e=['**','**','**','**','**','**','**','**']
-r=['**','**','**','**','**','**','**','**']
-t=['**','**','**','**','**','**','**','**']
-y=['**','**','**','**','**','**','**','**']
-u=['Pb','Pb','Pb','Pb','Pb','Pb','Pb','Pb']
-i=['Tb','Cb','Fb','Db','Rb','Fb','Cb','Tb']
-echiquier=[a,z,e,r,t,y,u,i]
 
-random.choice(a)
-random.randint(0,7)
-
-def ia_select_dep():
+def ia_select_dep(echiquier):
     """
     moteur de jeux d'echec random qui joue  qui retourne le pion de départ
     choisi et le mouvement effectué

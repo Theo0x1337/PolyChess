@@ -1474,7 +1474,7 @@ class DtzTable(Table):
         self.tb_size[p_tb_size] = self.calc_factors_pawn(self.files[f].factor, order, order2, self.files[f].norm, f)
 
 
-[docs]class Tablebase:
+class Tablebase:
     """
     Manages a collection of tablebase files for probing.
 
@@ -1516,7 +1516,7 @@ class DtzTable(Table):
         hashtable[table.mirrored_key] = table
         return 1
 
-[docs]    def add_directory(self, directory: PathLike, *, load_wdl: bool = True, load_dtz: bool = True) -> int:
+    def add_directory(self, directory: PathLike, *, load_wdl: bool = True, load_dtz: bool = True) -> int:
         """
         Adds tables from a directory.
 
@@ -1659,7 +1659,7 @@ class DtzTable(Table):
 
         return alpha, captures_found
 
-[docs]    def probe_wdl(self, board: chess.Board) -> int:
+    def probe_wdl(self, board: chess.Board) -> int:
         """
         Probes WDL tables for win/draw/loss-information.
 
@@ -1821,7 +1821,7 @@ class DtzTable(Table):
 
             return best
 
-[docs]    def probe_dtz(self, board: chess.Board) -> int:
+    def probe_dtz(self, board: chess.Board) -> int:
         """
         Probes DTZ tables for distance to zero information.
 
@@ -1936,7 +1936,7 @@ class DtzTable(Table):
         except KeyError:
             return default
 
-[docs]    def close(self) -> None:
+    def close(self) -> None:
         """Closes all loaded tables."""
         while self.wdl:
             _, wdl = self.wdl.popitem()
@@ -1957,7 +1957,7 @@ class DtzTable(Table):
 
 
 
-[docs]def open_tablebase(directory: PathLike, *, load_wdl: bool = True, load_dtz: bool = True, max_fds: Optional[int] = 128, VariantBoard: Type[chess.Board] = chess.Board) -> Tablebase:
+def open_tablebase(directory: PathLike, *, load_wdl: bool = True, load_dtz: bool = True, max_fds: Optional[int] = 128, VariantBoard: Type[chess.Board] = chess.Board) -> Tablebase:
     """
     Opens a collection of tables for probing. See
     :class:`~chess.syzygy.Tablebase`.
