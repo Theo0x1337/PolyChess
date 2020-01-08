@@ -48,3 +48,4 @@ while finPartie == False:
         
     
 
+#!!! un pion a mangé son allié !!! erreur à corrigé 
