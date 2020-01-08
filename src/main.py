@@ -16,19 +16,35 @@ finPartie = False
 echiquier=ech.initialiseEchiquier()
 
 while finPartie == False:
-
+    
+    print("----------------")
+    print("")
+    print("Au tour du joueur")
+    print("")
+    print("----------------")
+    
     ech.affichage(echiquier)
     ech.choisiDeplacement(echiquier)
     FEN = ech.generatorFEN(echiquier)
     finPartie = api.testFDP(FEN)
     
-    print(finPartie)
+    
+    print("----------------")
+    print("")
+    print("Au tour de l'ordinateur")
+    print("")
+    print("----------------")
     
     if finPartie == False:
         ia.deplacement_ia(echiquier)
         ech.affichage(echiquier)
         FEN = ech.generatorFEN(echiquier)
-        finPartie = print(api.testFDP(FEN))
+        finPartie = api.testFDP(FEN)
+    else:
+        print("----------------")
+        print("")
+        print("La partie est finie ! il y a echec et mat")
+        print("")
         
     
 
