@@ -8,6 +8,8 @@ Created on Thu Nov 28 16:51:47 2019
 import echiquier as ech
 import apiSyzygy as api
 import IA_random as ia
+import IA_white_random as iaWhite
+import time
 #pieces blanches : Pb Cb Fb Tb Rb Db
 #pieces noires : Pn Cn Fn Tn Rn Dn
 
@@ -25,11 +27,12 @@ while finPartie == False:
     print("----------------")
     
     ech.affichage(echiquier)
-    ech.choisiDeplacement(echiquier)
+    iaWhite.deplacement_ia_white(echiquier)
+    ech.affichage(echiquier)
+    time.sleep(1)
+    #ech.choisiDeplacement(echiquier)
     FEN = ech.generatorFEN(echiquier)
-    print("avant test")
     finPartie = api.testFDP(FEN,'w')
-    print("apres test")
     
     print("")
     print("----------------")
@@ -41,8 +44,9 @@ while finPartie == False:
     if finPartie == False:
         ia.deplacement_ia(echiquier)
         ech.affichage(echiquier)
+        time.sleep(1)
         FEN = ech.generatorFEN(echiquier)
-        finPartie = api.testFDP(FEN,'b')
+        finPartie = api.testFDP(FEN,'b')[0]
     else:
         print("")
         print("----------------")
