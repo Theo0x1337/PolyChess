@@ -21,7 +21,7 @@ def ia_white_select_dep(echiquier):
     """
     pos_dep=[random.randint(0,7),random.randint(0,7)]
     
-    print("piece choisie : "+str(pos_dep[0])+":"+str(pos_dep[1]))
+
     if echiquier[pos_dep[1]][pos_dep[0]] == "**" or echiquier[pos_dep[1]][pos_dep[0]][1]!="b":
         return ia_white_select_dep(echiquier)
     else:
