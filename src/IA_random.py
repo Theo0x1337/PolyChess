@@ -21,6 +21,7 @@ def ia_select_dep(echiquier):
     """
     pos_dep=[random.randint(0,7),random.randint(0,7)]
     
+    print("piece choisie : "+str(pos_dep[0])+":"+str(pos_dep[1]))
     if echiquier[pos_dep[1]][pos_dep[0]] == "**" or echiquier[pos_dep[1]][pos_dep[0]][1]!="n":
         return ia_select_dep(echiquier)
     else:
@@ -64,6 +65,7 @@ def ia_select_dep(echiquier):
         
 
 def deplacement_ia(echiquier):
+    print("NOIR :")
     selected=ia_select_dep(echiquier)
     print("depart : "+str(selected[1][0])+","+str(selected[1][1]))
     print("arrivee : "+str(selected[0][0])+","+str(selected[0][1]))
