@@ -17,6 +17,7 @@ echiquier=ech.initialiseEchiquier()
 
 while finPartie == False:
     
+    print("")
     print("----------------")
     print("")
     print("Au tour du joueur")
@@ -28,7 +29,7 @@ while finPartie == False:
     FEN = ech.generatorFEN(echiquier)
     finPartie = api.testFDP(FEN)
     
-    
+    print("")
     print("----------------")
     print("")
     print("Au tour de l'ordinateur")
@@ -41,6 +42,7 @@ while finPartie == False:
         FEN = ech.generatorFEN(echiquier)
         finPartie = api.testFDP(FEN)
     else:
+        print("")
         print("----------------")
         print("")
         print("La partie est finie ! il y a echec et mat")
