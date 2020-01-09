@@ -50,3 +50,5 @@ while finPartie == False:
         
     
 
+#!!! un pion a mangé son allié !!! erreur à corrigé 
+# on peut maintenant ajouter la couleur au FEN 
