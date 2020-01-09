@@ -9,8 +9,9 @@ Created on Wed Jan  8 16:01:23 2020
 import requests
 
 
-def testFDP(string):
-    urlFen = 'https://tablebase.lichess.ovh/standard?fen='+string
+def testFDP(string,couleur):
+    #rnbqkbnr/pp1B1ppp/2p5/4P3/8/6P1/PPPPP2P/RNBQK1NR b - - 0 1
+    urlFen = 'https://tablebase.lichess.ovh/standard?fen='+string+" "+couleur+" - - 0 1"
     resp = requests.get(urlFen)
     return (resp.json()['checkmate'])
 
