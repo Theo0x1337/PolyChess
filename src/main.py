@@ -32,7 +32,7 @@ while finPartie == False:
     time.sleep(1)
     #ech.choisiDeplacement(echiquier)
     FEN = ech.generatorFEN(echiquier)
-    finPartie = api.testFDP(FEN,'w')
+    finPartie = api.testFDP(FEN,'w')[0]
     
     print("")
     print("----------------")
@@ -46,12 +46,18 @@ while finPartie == False:
         ech.affichage(echiquier)
         time.sleep(1)
         FEN = ech.generatorFEN(echiquier)
-        finPartie = api.testFDP(FEN,'b')[0]
+        reponse = api.testFDP(FEN,'b')
+        finPartie = reponse[0]
     else:
         print("")
         print("----------------")
         print("")
-        print("La partie est finie ! il y a echec et mat")
+        couleur = reponse[1]
+        if couleur == "w":
+            gagnants = "noirs"
+        else :
+            gagnants = "blancs"
+        print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
         print("")
         
     
