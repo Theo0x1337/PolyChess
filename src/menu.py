@@ -4,6 +4,7 @@ Created on Thu Jan  9 10:11:59 2020
 
 @author: 33762
 """
+import main as main
 
 print("============================================")
 print("                PolyChess            ")
@@ -14,3 +15,10 @@ print("3->   IA vs IA")
 mode = 99 
 while(mode>3 or mode<1):
     mode =int(input("Choisissez votre mode : "))
+
+if mode == 1:
+    pass
+elif mode == 2:
+    pass
+elif mode == 3:
+    main.IaVsIa()
