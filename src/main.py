@@ -27,7 +27,9 @@ while finPartie == False:
     ech.affichage(echiquier)
     ech.choisiDeplacement(echiquier)
     FEN = ech.generatorFEN(echiquier)
-    finPartie = api.testFDP(FEN)
+    print("avant test")
+    finPartie = api.testFDP(FEN,'w')
+    print("apres test")
     
     print("")
     print("----------------")
@@ -40,7 +42,7 @@ while finPartie == False:
         ia.deplacement_ia(echiquier)
         ech.affichage(echiquier)
         FEN = ech.generatorFEN(echiquier)
-        finPartie = api.testFDP(FEN)
+        finPartie = api.testFDP(FEN,'b')
     else:
         print("")
         print("----------------")
