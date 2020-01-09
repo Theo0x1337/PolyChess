@@ -24,37 +24,38 @@ def ia_select_dep(echiquier):
     if echiquier[pos_dep[1]][pos_dep[0]] == "**" or echiquier[pos_dep[1]][pos_dep[0]][1]!="n":
         return ia_select_dep(echiquier)
     else:
-        if echiquier[pos_dep[1]][pos_dep[0]][0]!="P":
+        if echiquier[pos_dep[1]][pos_dep[0]][0]=="P":
             if mb.coups_possibles_pion(pos_dep,echiquier,"Noir")==[]:
                 return ia_select_dep(echiquier)
             else:
+                print(mb.coups_possibles_pion(pos_dep,echiquier,"Noir"))
                 return random.choice(mb.coups_possibles_pion(pos_dep,echiquier,"Noir")),pos_dep
             
-        elif echiquier[pos_dep[1]][pos_dep[0]][0]!="T":
+        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="T":
             if mb.coups_possibles_tour(pos_dep,echiquier,"Noir")==[]:
                 return ia_select_dep(echiquier)
             else:
                 return random.choice(mb.coups_possibles_tour(pos_dep,echiquier,"Noir")),pos_dep
             
-        elif echiquier[pos_dep[1]][pos_dep[0]][0]!="F":
+        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="F":
             if mb.coups_possibles_fou(pos_dep,echiquier,"Noir")==[]:
                 return ia_select_dep(echiquier)
             else:
                 return random.choice(mb.coups_possibles_fou(pos_dep,echiquier,"Noir")),pos_dep
             
-        elif echiquier[pos_dep[1]][pos_dep[0]][0]!="D":
+        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="D":
             if mb.coups_possibles_dame(pos_dep,echiquier,"Noir")==[]:
                 return ia_select_dep(echiquier)
             else:
                 return random.choice(mb.coups_possibles_dame(pos_dep,echiquier,"Noir")),pos_dep
         
-        elif echiquier[pos_dep[1]][pos_dep[0]][0]!="R":
+        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="R":
             if mb.coups_possibles_roi(pos_dep,echiquier,"Noir")==[]:
                 return ia_select_dep(echiquier)
             else:
                 return random.choice(mb.coups_possibles_roi(pos_dep,echiquier,"Noir")),pos_dep
         
-        elif echiquier[pos_dep[1]][pos_dep[0]][0]!="C":
+        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="C":
             if mb.coups_possibles_cavalier(pos_dep,echiquier,"Noir")==[]:
                 return ia_select_dep(echiquier)
             else:
