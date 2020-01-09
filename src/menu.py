@@ -17,8 +17,8 @@ while(mode>3 or mode<1):
     mode =int(input("Choisissez votre mode : "))
 
 if mode == 1:
-    pass
+    main.PlayerVsPlayer()
 elif mode == 2:
-    pass
+    main.PlayerVsIa()
 elif mode == 3:
     main.IaVsIa()
