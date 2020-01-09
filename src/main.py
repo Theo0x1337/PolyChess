@@ -13,51 +13,51 @@ import time
 #pieces blanches : Pb Cb Fb Tb Rb Db
 #pieces noires : Pn Cn Fn Tn Rn Dn
 
-
-finPartie = False
-echiquier=ech.initialiseEchiquier()
-while finPartie == False:
-    
-    print("")
-    print("----------------")
-    print("")
-    print("Au tour du joueur")
-    print("")
-    print("----------------")
-    
-    ech.affichage(echiquier)
-    iaWhite.deplacement_ia_white(echiquier)
-    ech.affichage(echiquier)
-    time.sleep(1)
-    #ech.choisiDeplacement(echiquier)
-    FEN = ech.generatorFEN(echiquier)
-    finPartie = api.testFDP(FEN,'w')[0]
-    
-    print("")
-    print("----------------")
-    print("")
-    print("Au tour de l'ordinateur")
-    print("")
-    print("----------------")
-    
-    if finPartie == False:
-        ia.deplacement_ia(echiquier)
-        ech.affichage(echiquier)
-        time.sleep(1)
-        FEN = ech.generatorFEN(echiquier)
-        reponse = api.testFDP(FEN,'b')
-        finPartie = reponse[0]
-    else:
+def IaVsIa():
+    finPartie = False
+    echiquier=ech.initialiseEchiquier()
+    while finPartie == False:
+        
         print("")
         print("----------------")
         print("")
-        couleur = reponse[1]
-        if couleur == "w":
-            gagnants = "noirs"
-        else :
-            gagnants = "blancs"
-        print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
+        print("Au tour du joueur")
         print("")
+        print("----------------")
+        
+        ech.affichage(echiquier)
+        iaWhite.deplacement_ia_white(echiquier)
+        ech.affichage(echiquier)
+        time.sleep(1)
+        #ech.choisiDeplacement(echiquier)
+        FEN = ech.generatorFEN(echiquier)
+        finPartie = api.testFDP(FEN,'w')[0]
+        
+        print("")
+        print("----------------")
+        print("")
+        print("Au tour de l'ordinateur")
+        print("")
+        print("----------------")
+        
+        if finPartie == False:
+            ia.deplacement_ia(echiquier)
+            ech.affichage(echiquier)
+            time.sleep(1)
+            FEN = ech.generatorFEN(echiquier)
+            reponse = api.testFDP(FEN,'b')
+            finPartie = reponse[0]
+        else:
+            print("")
+            print("----------------")
+            print("")
+            couleur = reponse[1]
+            if couleur == "w":
+                gagnants = "noirs"
+            else :
+                gagnants = "blancs"
+            print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
+            print("")
         
     
 
