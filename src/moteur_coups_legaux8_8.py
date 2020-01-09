@@ -12,8 +12,13 @@ def coup_legaux(pièce,pos,couleur):
     coup_legaux(string,list[int,int],string)
     ->return list[list[int,int]]
     
+    <FR>
     pour chaque pièce et ses coord. on renvoie les différentes coups légaux sans prendre en compte les blocages
     la couleur est utile pour les pions en effet ce sont les seuls pièces dont le deplacement est différent en fonction de la couleur de celle-ci
+    
+    <EN>
+    for each pieces and their coordinates, it return the different chess move without taking care of the blockage
+    the color is useful for pawn because the moves are different if the pawn is black or white
     """
     x=pos[0]
     y=pos[1]
