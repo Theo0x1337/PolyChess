@@ -26,7 +26,7 @@ def place_dispo(pos,echiquier,couleur):
     noirs=['Pn','Cn','Fn','Tn','Rn','Dn']
     blancs=['Pb','Cb','Fb','Tb','Rb','Db']
     
-    print(str(pos[1])+":"+str(pos[0]))
+
     if echiquier[pos[1]][pos[0]] in noirs and pos[1]<8 and pos[0]<8 and pos[1]>=0 and pos[0]>=0:
         if couleur == 'Noir':
             return 'Allier'
