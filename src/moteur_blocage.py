@@ -10,13 +10,18 @@ import blocageFou as bF
 
 def place_dispo(pos,echiquier,couleur):
     """
+    
+    
     place_dispo(List[int,int],List[List[String]],String)
     -> return String
-    
+
+    <FR>    
     Retourne si la case dont la position est donné en paramètre est ennemi/allier ou vide par rapport à une couleur
     
-    !!!Retourne ennemi que si c'est mal ecrit mdrrr c'est bizarre!!!
-    #WORK mais étrange
+    
+    <EN>
+    Return if the square which the position is given in parameters is an ennemy or an ally or empty by a color
+    
     """
     noirs=['Pn','Cn','Fn','Tn','Rn','Dn']
     blancs=['Pb','Cb','Fb','Tb','Rb','Db']
@@ -38,8 +43,13 @@ def coups_possibles_tour(pos,echiquier,couleur):
     coups_possibles_tour(List[int,int],List[List[String]],List[List[int,int]],string)
     return -> List[List[int,int]]
     
+    <FR>
     retourne tous les coups possibles pour une tour dans un position et un echiquier précis
     #WORK
+    
+    <EN>
+    return every chess move possible for a ROOK in a position and a chessboard
+    
     """
     res=[]
     #Déplacement en bas de la tour
@@ -99,8 +109,14 @@ def coups_possibles_fou(pos,echiquier,couleur):
     coups_possibles_fou(List[int,int],List[List[String]],List[List[int,int]],string)
     return -> List[List[int,int]]
     
+    <FR>
     retourne tous les coups possibles pour un fou dans un position et un echiquier précis
     #WORK
+    
+    <EN>
+    return every chess move possible for a BISHOP in a position and a chessboard
+    
+    
     """
     res=[]
     #Déplacement en bas à droite du fou
@@ -160,10 +176,16 @@ def coups_possibles_dame(pos,echiquier,couleur):
     coups_possibles_dame(List[int,int],List[List[String]],List[List[int,int]],string)
     return -> List[List[int,int]]
     
+    <FR>
     retourne tous les coups possibles pour une dame dans un position et un echiquier précis
     On considère que la dame se déplace comme un fou + une tour 
     #WORK
+    
+    <EN>
+    return every chess move possible for a QUEEN in a position and a chessboard
+    A queen is at the same time a Bishop and a Rook
     """
+    
     return coups_possibles_fou(pos,echiquier,couleur)+coups_possibles_tour(pos,echiquier,couleur)
 
 def coups_possibles_cavalier(pos,echiquier,couleur):
@@ -171,8 +193,13 @@ def coups_possibles_cavalier(pos,echiquier,couleur):
     coups_possibles_cavalier(List[int,int],List[List[String]],List[List[int,int]],string)
     return -> List[List[int,int]]
     
+    <FR>
     retourne tous les coups possibles pour un cavalier dans un position et un echiquier précis
     #WORK
+    
+    <EN>
+    return every chess move possible for a KNIGHT in a position and a chessboard
+    
     """
     x=pos[0]
     y=pos[1]
@@ -194,8 +221,13 @@ def coups_possibles_roi(pos,echiquier,couleur):
     coups_possibles_cavalier(List[int,int],List[List[String]],List[List[int,int]],string)
     return -> List[List[int,int]]
     
+    <FR>
     retourne tous les coups possibles pour un roi dans un position et un echiquier précis
     #WORK
+    
+    <EN>
+    return every chess move possible for a KING in a position and a chessboard
+    
     """
     x=pos[0]
     y=pos[1]
@@ -217,8 +249,12 @@ def coups_possibles_pion(pos,echiquier,couleur):
     coups_possibles_cavalier(List[int,int],List[List[String]],List[List[int,int]],string)
     return -> List[List[int,int]]
     
+    <FR>
     retourne tous les coups possibles pour un pion dans un position et un echiquier précis
     #WORK
+    
+    <EN>
+    return every chess move possible for a PAWN in a position and a chessboard
     """   
     x=pos[0]
     y=pos[1]
