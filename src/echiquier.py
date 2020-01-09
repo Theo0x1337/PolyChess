@@ -215,8 +215,8 @@ def generatorFEN(echiquier):
             if case == "**":
                 fen = fen + "0"
         fen = fen + "/"
-    fenIntermediaire = fen[:-1]
     lettres = ['r','R','n','N','b','B','q','Q','k','K','p','P','/']
+    fenIntermediaire = fen
     while fenIntermediaire.find('0') != -1:
         startEmpty = fenIntermediaire.find('0')
         ends = []
@@ -227,7 +227,7 @@ def generatorFEN(echiquier):
                 ends[i] = 99
         endEmpty = min(ends)
         fenIntermediaire = fenIntermediaire[:startEmpty] + str(endEmpty-startEmpty) + fenIntermediaire[endEmpty:len(fenIntermediaire)]
-    return fenIntermediaire
+    return fenIntermediaire[:-1]
   
   
     
