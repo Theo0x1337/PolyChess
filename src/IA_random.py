@@ -28,7 +28,6 @@ def ia_select_dep(echiquier):
             if mb.coups_possibles_pion(pos_dep,echiquier,"Noir")==[]:
                 return ia_select_dep(echiquier)
             else:
-                print(mb.coups_possibles_pion(pos_dep,echiquier,"Noir"))
                 return random.choice(mb.coups_possibles_pion(pos_dep,echiquier,"Noir")),pos_dep
             
         elif echiquier[pos_dep[1]][pos_dep[0]][0]=="T":
