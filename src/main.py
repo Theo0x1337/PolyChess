@@ -16,7 +16,6 @@ import time
 
 finPartie = False
 echiquier=ech.initialiseEchiquier()
-
 while finPartie == False:
     
     print("")
