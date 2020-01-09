@@ -21,16 +21,16 @@ def place_dispo(pos,echiquier,couleur):
     noirs=['Pn','Cn','Fn','Tn','Rn','Dn']
     blancs=['Pb','Cb','Fb','Tb','Rb','Db']
     
-    
-    if echiquier[pos[1]][pos[0]] in noirs:
+    print(str(pos[1])+":"+str(pos[0]))
+    if echiquier[pos[1]][pos[0]] in noirs and pos[1]<8 and pos[0]<8 and pos[1]>=0 and pos[0]>=0:
         if couleur == 'Noir':
             return 'Allier'
-    if echiquier[pos[1]][pos[0]] in blancs:
+    if echiquier[pos[1]][pos[0]] in blancs and pos[1]<8 and pos[0]<8 and pos[1]>=0 and pos[0]>=0:
         if couleur == 'Blanc':
             return 'Allier'
-    elif echiquier[pos[1]][pos[0]] == '**':
+    elif echiquier[pos[1]][pos[0]] == '**' and pos[1]<8 and pos[0]<8 and pos[1]>=0 and pos[0]>=0:
         return 'Vide'
-    elif echiquier[pos[1]][pos[0]] != '':
+    elif echiquier[pos[1]][pos[0]] != '' and pos[1]<8 and pos[0]<8 and pos[1]>=0 and pos[0]>=0:
         return 'Ennemi'
 
 def coups_possibles_tour(pos,echiquier,couleur):
@@ -205,7 +205,7 @@ def coups_possibles_roi(pos,echiquier,couleur):
             for j in [-1,0,1]:
                 coordx=x+i
                 coordy=y+j
-                if coordx <= 8 and coordy <= 8 and coordx >= 0 and coordy >= 0:
+                if coordx < 8 and coordy < 8 and coordx >= 0 and coordy >= 0:
                     coups.append([coordx,coordy])
     for coup in coups: #Pour chaque coup dans la liste des coups théoriquement possibles
         if place_dispo(coup,echiquier,couleur) != 'Allier': #si il n'y a pas d'allier sur la case
