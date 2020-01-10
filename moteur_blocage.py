@@ -37,10 +37,10 @@ def coups_possibles_tour(pos,echiquier,couleur):
     coups_possibles_tour(List[int,int],List[List[String]],List[List[int,int]],string)
     return -> List[List[int,int]]
     
-    returns all possible moves for a tower in a specific position and chessboard
+    returns all possible moves for a rook in a specific position and chessboard
     """
     res=[]
-    #Déplacement en bas de la tour
+    #move down rook
     coups_bas=bT.descendre(pos)
     for coup in coups_bas:
         if place_dispo(coup,echiquier,couleur) == 'Allier':
@@ -52,7 +52,7 @@ def coups_possibles_tour(pos,echiquier,couleur):
             res.append(coup)
         else: 
             break
-    #Déplacement en haut de la tour
+    #move hight rook
     coups_haut=bT.monter(pos)
     for coup in coups_haut:
         if place_dispo(coup,echiquier,couleur) == 'Allier':
@@ -64,7 +64,7 @@ def coups_possibles_tour(pos,echiquier,couleur):
             res.append(coup)
         else: 
             break
-    #Déplacement à droite de la tour
+    #move right
     coups_droite=bT.droite(pos)
     for coup in coups_droite:
         if place_dispo(coup,echiquier,couleur) == 'Allier':
@@ -76,7 +76,7 @@ def coups_possibles_tour(pos,echiquier,couleur):
             res.append(coup)
         else: 
             break
-    #Déplacement à gauche de la tour
+    #move left rook
     coups_gauche=bT.gauche(pos)
     for coup in coups_gauche:
         if place_dispo(coup,echiquier,couleur) == 'Allier':
@@ -102,7 +102,7 @@ def coups_possibles_fou(pos,echiquier,couleur):
    
     """
     res=[]
-    #Déplacement en bas à droite du fou
+    #move down bishop
     coups_bas_doite=bF.decendreDroite(pos)
     for coup in coups_bas_doite:
         if place_dispo(coup,echiquier,couleur) == 'Allier':
@@ -114,7 +114,7 @@ def coups_possibles_fou(pos,echiquier,couleur):
             res.append(coup)
         else: 
             break
-    #movedown bishop
+    #move down bishop
     coups_bas_gauche=bF.decendreGauche(pos)
     for coup in coups_bas_gauche:
         if place_dispo(coup,echiquier,couleur) == 'Allier':
