@@ -60,13 +60,7 @@ def ia_select_dep(echiquier):
             else:
                 return random.choice(mb.coups_possibles_cavalier(pos_dep,echiquier,"Noir")),pos_dep
 
-def promotion(echiquier,pos_arriv):
-    
-    if pos_arriv[0][1]==7 and echiquier[pos_arriv[0]][pos_arriv[1]]=="Pn":
-        echiquier[pos_arriv[0][0]][pos_arriv[0][1]]="Dn"
-        
-    elif pos_arriv[0][1]==0 and echiquier[pos_arriv[0]][pos_arriv[1]]=="Pb":
-        echiquier[pos_arriv[0][0]][pos_arriv[0][1]]="Db"    
+ 
         
 
 def deplacement_ia(echiquier):
@@ -75,7 +69,6 @@ def deplacement_ia(echiquier):
     print("depart : "+str(selected[1][0])+","+str(selected[1][1]))
     print("arrivee : "+str(selected[0][0])+","+str(selected[0][1]))
     ech.deplacement(echiquier,selected[1][0],selected[1][1],selected[0][0],selected[0][1])
-    promotion(echiquier,selected)
     return echiquier
 
 #ici j'ai regler le problème en fait le selected[1] = depart et le 0 = arrivée
