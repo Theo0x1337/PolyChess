@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Nov 29 19:03:44 2019
-
 @author: 33762
 """
 
-#TOUR
-def monter(pos): #WORK
-    #x = same 
-    #y-1
+#ROOK
+def monter(pos): 
+    """
+    monter([int,int]) => return [[int,int],...]
+    function that returns the upper's positions of a rook
+    """
     x=pos[0]
     y=pos[1]
     res=[]
@@ -16,9 +17,11 @@ def monter(pos): #WORK
         res.append([x,i])
     return res
 
-def descendre(pos): #WORK
-    #x = same 
-    #y+1
+def descendre(pos): 
+    """
+    descendre([int,int]) => return [[int,int],...]
+    function that returns the lower's positions of a rook
+    """
     x=pos[0]
     y=pos[1]
     res=[]
@@ -26,9 +29,11 @@ def descendre(pos): #WORK
         res.append([x,i])
     return res
 
-def droite(pos): #WORK
-    #x+1
-    #y = same
+def droite(pos): 
+    """
+    droite([int,int]) => return [[int,int],...]
+    function that returns the right's positions of a rook
+    """
     x=pos[0]
     y=pos[1]
     res=[]
@@ -36,9 +41,11 @@ def droite(pos): #WORK
         res.append([i,y])
     return res
 
-def gauche(pos): #WORK
-    #x-1
-    #y = same
+def gauche(pos):
+    """
+    gauche([int,int]) => return [[int,int],...]
+    function that returns the left's positions of a rook
+    """
     x=pos[0]
     y=pos[1]
     res=[]
