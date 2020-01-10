@@ -13,9 +13,8 @@ def place_dispo(pos,echiquier,couleur):
     place_dispo(List[int,int],List[List[String]],String)
     -> return String
     
-    Retourne si la case dont la position est donné en paramètre est ennemi/allier ou vide par rapport à une couleur
-    
-    !!!Retourne ennemi que si c'est mal ecrit mdrrr c'est bizarre!!!
+    Returns if the box whose position is given as a parameter is enemy / ally or empty compared to a color
+!!! Returns enemy that if it is badly written mdrrr it is weird !!!
     #WORK mais étrange
     """
     noirs=['Pn','Cn','Fn','Tn','Rn','Dn']
@@ -38,8 +37,7 @@ def coups_possibles_tour(pos,echiquier,couleur):
     coups_possibles_tour(List[int,int],List[List[String]],List[List[int,int]],string)
     return -> List[List[int,int]]
     
-    retourne tous les coups possibles pour une tour dans un position et un echiquier précis
-    #WORK
+    returns all possible moves for a tower in a specific position and chessboard
     """
     res=[]
     #Déplacement en bas de la tour
@@ -99,8 +97,9 @@ def coups_possibles_fou(pos,echiquier,couleur):
     coups_possibles_fou(List[int,int],List[List[String]],List[List[int,int]],string)
     return -> List[List[int,int]]
     
-    retourne tous les coups possibles pour un fou dans un position et un echiquier précis
-    #WORK
+    returns all possible moves for a bishop in a precise position and chessboard
+     #work
+   
     """
     res=[]
     #Déplacement en bas à droite du fou
@@ -115,7 +114,7 @@ def coups_possibles_fou(pos,echiquier,couleur):
             res.append(coup)
         else: 
             break
-    #Déplacement en bas à gauche du fou
+    #movedown bishop
     coups_bas_gauche=bF.decendreGauche(pos)
     for coup in coups_bas_gauche:
         if place_dispo(coup,echiquier,couleur) == 'Allier':
@@ -127,7 +126,7 @@ def coups_possibles_fou(pos,echiquier,couleur):
             res.append(coup)
         else: 
             break
-    #Déplacement en haut à droite du fou
+    #move right bishop
     coups_haut_droite=bF.monterDroite(pos)
     for coup in coups_haut_droite:
         if place_dispo(coup,echiquier,couleur) == 'Allier':
@@ -139,7 +138,7 @@ def coups_possibles_fou(pos,echiquier,couleur):
             res.append(coup)
         else: 
             break
-    #Déplacement en haut à gauche du fou
+    #move left bishop
     coups_haut_gauche=bF.monterGauche(pos)
     for coup in coups_haut_gauche:
         if place_dispo(coup,echiquier,couleur) == 'Allier':
@@ -160,9 +159,9 @@ def coups_possibles_dame(pos,echiquier,couleur):
     coups_possibles_dame(List[int,int],List[List[String]],List[List[int,int]],string)
     return -> List[List[int,int]]
     
-    retourne tous les coups possibles pour une dame dans un position et un echiquier précis
-    On considère que la dame se déplace comme un fou + une tour 
-    #WORK
+    returns all possible moves for a queen in a specific position and chessboard
+     We consider that the queen moves like bishop + a rook
+     #work
     """
     return coups_possibles_fou(pos,echiquier,couleur)+coups_possibles_tour(pos,echiquier,couleur)
 
@@ -171,21 +170,21 @@ def coups_possibles_cavalier(pos,echiquier,couleur):
     coups_possibles_cavalier(List[int,int],List[List[String]],List[List[int,int]],string)
     return -> List[List[int,int]]
     
-    retourne tous les coups possibles pour un cavalier dans un position et un echiquier précis
+    return all possibilities for the knight in a specific position
     #WORK
     """
     x=pos[0]
     y=pos[1]
     coups=[]
     res=[]
-    for i,j in [[2,1],[2,-1],[1,2],[1,-2],[-1,2],[-1,-2],[-2,1],[-2,-1]]: #pour chaque possibilités de déplacement d'un cavalier en général
+    for i,j in [[2,1],[2,-1],[1,2],[1,-2],[-1,2],[-1,-2],[-2,1],[-2,-1]]: #for each knight possibilities 
                 coordx=x+i
                 coordy=y+j
-                if coordx <= 7 and coordy <= 7 and coordx >= 0 and coordy >= 0: #si le déplacement ne fait pas sortir la pièce de l'échiquier
-                    coups.append([coordx,coordy]) #alors on l'ajoute à la liste des coups théoriquement possibles
-    for coup in coups: #Pour chaque coup dans la liste des coups théoriquement possibles
-        if place_dispo(coup,echiquier,couleur) != 'Allier': #si il n'y a pas d'allier sur la case
-            res.append(coup) #alors ce déplacement est valide donc on l'ajoute à la liste
+                if coordx <= 7 and coordy <= 7 and coordx >= 0 and coordy >= 0: #if the movement does not bring the piece out of the chessboard
+                    coups.append([coordx,coordy]) #then we add it to the list of theoretically possible moves
+    for coup in coups: #For each move in the list of theoretically possible moves
+        if place_dispo(coup,echiquier,couleur) != 'Allier': #if there is no ally on the square
+            res.append(coup) #then this move is valid so we add it to the list
             
     return res
 
@@ -194,8 +193,7 @@ def coups_possibles_roi(pos,echiquier,couleur):
     coups_possibles_cavalier(List[int,int],List[List[String]],List[List[int,int]],string)
     return -> List[List[int,int]]
     
-    retourne tous les coups possibles pour un roi dans un position et un echiquier précis
-    #WORK
+   returns all possible moves for a king in a specific position and chessboard
     """
     x=pos[0]
     y=pos[1]
@@ -207,9 +205,9 @@ def coups_possibles_roi(pos,echiquier,couleur):
                 coordy=y+j
                 if coordx <= 8 and coordy <= 8 and coordx >= 0 and coordy >= 0:
                     coups.append([coordx,coordy])
-    for coup in coups: #Pour chaque coup dans la liste des coups théoriquement possibles
-        if place_dispo(coup,echiquier,couleur) != 'Allier': #si il n'y a pas d'allier sur la case
-            res.append(coup) #alors ce déplacement est valide donc on l'ajoute à la liste
+    for coup in coups: #For each move in the list of theoretically possible moves
+        if place_dispo(coup,echiquier,couleur) != 'Allier': #if there is no ally on the square
+            res.append(coup) #then this move is valid so we add it to the list
     return res
   
 def coups_possibles_pion(pos,echiquier,couleur):
@@ -217,8 +215,8 @@ def coups_possibles_pion(pos,echiquier,couleur):
     coups_possibles_cavalier(List[int,int],List[List[String]],List[List[int,int]],string)
     return -> List[List[int,int]]
     
-    retourne tous les coups possibles pour un pion dans un position et un echiquier précis
-    #WORK
+       returns all possible moves for a king in a specific position and chessboard
+
     """   
     x=pos[0]
     y=pos[1]
@@ -226,26 +224,26 @@ def coups_possibles_pion(pos,echiquier,couleur):
     res=[]
     if couleur == 'Blanc':
         coups.append([x,y-1])
-        if y == 6 and place_dispo([x,y-1],echiquier,couleur) == 'Vide': #Si le pion est sur sa position initial et qu'il n'est pas bloquer alors il peut avancer de deux cases
+        if y == 6 and place_dispo([x,y-1],echiquier,couleur) == 'Vide': #If the pawn is in its initial position and it is not blocking then it can advance two spaces
             coups.append([x,y-2])
         for coup in coups:
-            if place_dispo(coup,echiquier,couleur) == 'Vide': #le pion ne peut manger que en diagonal c'est pour cela que la case doit être vide
+            if place_dispo(coup,echiquier,couleur) == 'Vide': #the pawn can only eat diagonally, that's why the box must be empty
                 res.append(coup)
-        #Si un ennemi se trouve sur la case diagonal la plus proche alors il peut le manger
+        #If an enemy is on the nearest diagonal square then he can eat him
         if x!=7:
             if place_dispo([x+1,y-1],echiquier,couleur) == 'Ennemi':
                 res.append([x+1,y-1])
         if x!=0:
             if place_dispo([x-1,y-1],echiquier,couleur) == 'Ennemi':
                 res.append([x-1,y-1])
-    else : #Si le pion est noir
+    else : #if it is black
         coups.append([x,y+1])
-        if y == 1 and place_dispo([x,y+1],echiquier,couleur) == 'Vide': #Si le pion est sur sa position initial et qu'il n'est pas bloquer alors il peut avancer de deux cases 
+        if y == 1 and place_dispo([x,y+1],echiquier,couleur) == 'Vide': #If the pawn is in its initial position and it is not blocking then it can advance two square
             coups.append([x,y+2])
         for coup in coups:
-            if place_dispo(coup,echiquier,couleur) == 'Vide': #le pion ne peut manger que en diagonal c'est pour cela que la case doit être vide
+            if place_dispo(coup,echiquier,couleur) == 'Vide': #the pawn can only eat diagonally, that's why the box must be empty
                 res.append(coup)
-        #Si un ennemi se trouve sur la case diagonal la plus proche alors il peut le manger
+        #If an enemy is on the nearest diagonal square then he can eat it
         if x!=7:
             if place_dispo([x+1,y+1],echiquier,couleur) == 'Ennemi':
                 res.append([x+1,y+1])
