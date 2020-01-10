@@ -63,5 +63,3 @@ def decendreGauche(pos):
         y=y+1
         res.append([x,y])
     return res
-
-

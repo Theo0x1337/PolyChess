@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Nov 27 17:13:20 2019
+
 @author: 33762
+
 Pour la représentation on a choisi de commencer avec quelque chose de simple
 """
 import moteur_blocage as mb
@@ -118,6 +120,10 @@ def get_placesDispo_Noirs(echiquier):
     return res
 
 def initialiseEchiquier():
+    """
+    creates and initializes the chessboard
+    
+    """
     a=['Tn','Cn','Fn','Dn','Rn','Fn','Cn','Tn']
     z=['Pn','Pn','Pn','Pn','Pn','Pn','Pn','Pn']
     e=['**','**','**','**','**','**','**','**']
@@ -154,18 +160,11 @@ def choisiDeplacement(echiquier):
     deplacement(echiquier,x,y,position_arrivee[0],position_arrivee[1])
     affichage(echiquier)
     #A faire assoscier le choix a un déplacement et appeler la fonction de déplacement du gourmand !! 
-
-
-            
+    
 def deplacement(echiquier,x_dep,y_dep,x_arr,y_arr):
     pion_d = echiquier[y_dep][x_dep]
     echiquier[y_arr][x_arr] = pion_d
     echiquier[y_dep][x_dep] = "**"
-    if y_arr ==7 and echiquier[y_arr][x_arr] =="Pn":
-        echiquier[y_arr][x_arr]="Dn"
-    
-    elif y_arr ==0 and echiquier[y_arr][x_arr]=="Pb":
-        echiquier[y_arr][x_arr]="Db"
     
     
 def afficherCoupsPossibles(coups_possibles):
@@ -190,6 +189,12 @@ def demandeUtilisateurPosition():
     return x,y
 
 def generatorFEN(echiquier):
+    """
+    generate the fen to use the Syzygy API
+    generatorFEN([List[List[String]])
+    return ---> String
+    
+    """
     fen = ""
     for ligne in echiquier:
         for case in ligne:
@@ -233,3 +238,10 @@ def generatorFEN(echiquier):
         endEmpty = min(ends)
         fenIntermediaire = fenIntermediaire[:startEmpty] + str(endEmpty-startEmpty) + fenIntermediaire[endEmpty:len(fenIntermediaire)]
     return fenIntermediaire[:-1]
+  
+  
+    
+    
+    
+    
+    

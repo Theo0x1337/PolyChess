@@ -11,62 +11,68 @@ import echiquier as ech
 
 def ia_select_dep(echiquier):
     """
-    moteur de jeux d'echec random qui joue  qui retourne le pion de départ
-    choisi et le mouvement effectué
+    random chess engine that plays which returns the chosen starting pawn 
+    and the movement made
+    ia_select_dep([List[List[String]])
     return---> ([int, int], [int, int])
-    return---> ([x_départ, y_départ], [x_arrivée,y_arrivée])
-    
-                  
-    
+    return---> ([x_départ, y_départ], [x_arrive,y_arrive])
     """
+    
     pos_dep=[random.randint(0,7),random.randint(0,7)]
     
     if echiquier[pos_dep[1]][pos_dep[0]] == "**" or echiquier[pos_dep[1]][pos_dep[0]][1]!="n":
         return ia_select_dep(echiquier)
     else:
-        if echiquier[pos_dep[1]][pos_dep[0]][0]=="P":
+        if echiquier[pos_dep[1]][pos_dep[0]][0]=="P":#if it's pawn 
             if mb.coups_possibles_pion(pos_dep,echiquier,"Noir")==[]:
                 return ia_select_dep(echiquier)
             else:
+                #we make a random choice in the possibilities  
                 return random.choice(mb.coups_possibles_pion(pos_dep,echiquier,"Noir")),pos_dep
             
-        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="T":
+        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="T":#if it is a tower
             if mb.coups_possibles_tour(pos_dep,echiquier,"Noir")==[]:
                 return ia_select_dep(echiquier)
             else:
                 return random.choice(mb.coups_possibles_tour(pos_dep,echiquier,"Noir")),pos_dep
             
-        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="F":
+        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="F":#if it is a bishop
             if mb.coups_possibles_fou(pos_dep,echiquier,"Noir")==[]:
                 return ia_select_dep(echiquier)
-            else:
+            else:#we make a random choice in the possibilities 
                 return random.choice(mb.coups_possibles_fou(pos_dep,echiquier,"Noir")),pos_dep
             
-        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="D":
+        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="D":#if it is a queen
             if mb.coups_possibles_dame(pos_dep,echiquier,"Noir")==[]:
                 return ia_select_dep(echiquier)
-            else:
+            else:#we make a random choice in the possibilities 
                 return random.choice(mb.coups_possibles_dame(pos_dep,echiquier,"Noir")),pos_dep
         
-        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="R":
+        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="R":#if it is a king
             if mb.coups_possibles_roi(pos_dep,echiquier,"Noir")==[]:
                 return ia_select_dep(echiquier)
-            else:
+            else:#we make a random choice in the possibilities  
                 return random.choice(mb.coups_possibles_roi(pos_dep,echiquier,"Noir")),pos_dep
         
-        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="C":
+        elif echiquier[pos_dep[1]][pos_dep[0]][0]=="C":#if it is a knight
             if mb.coups_possibles_cavalier(pos_dep,echiquier,"Noir")==[]:
                 return ia_select_dep(echiquier)
-            else:
+            else:#we make a random choice in the possibilities 
                 return random.choice(mb.coups_possibles_cavalier(pos_dep,echiquier,"Noir")),pos_dep
             
         
 
 def deplacement_ia(echiquier):
+    """
+    move AI pawns and return the chessboard
+    deplacement_ia([List[List[String]]))
+    return ---> [List[List[String]]
+    """
     print("NOIR :")
-    selected=ia_select_dep(echiquier)
+    selected=ia_select_dep(echiquier)#call the fonction ia_select_dep wich gives the coord of the move
     print("depart : "+str(selected[1][0])+","+str(selected[1][1]))
     print("arrivee : "+str(selected[0][0])+","+str(selected[0][1]))
+    #we use the function deplacement from echiquier to move the pawn
     ech.deplacement(echiquier,selected[1][0],selected[1][1],selected[0][0],selected[0][1])
     return echiquier
 

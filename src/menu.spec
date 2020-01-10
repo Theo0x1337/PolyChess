@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['menu.py'],
-             pathex=['C:\\Users\\33762\\Documents\\GitHub\\PolyChess\\src'],
+             pathex=['C:\\Users\\33762\\Desktop\\cours\\Gestion de Projet\\PolyChess-enzo\\src'],
              binaries=[],
              datas=[],
              hiddenimports=[],

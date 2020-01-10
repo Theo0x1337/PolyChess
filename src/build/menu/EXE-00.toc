@@ -1,4 +1,5 @@
-('C:\\Users\\33762\\Documents\\GitHub\\PolyChess\\src\\build\\menu\\menu.exe',
+('C:\\Users\\33762\\Desktop\\cours\\Gestion de '
+ 'Projet\\PolyChess-enzo\\src\\build\\menu\\menu.exe',
  True,
  False,
  True,
@@ -10,7 +11,8 @@
  True,
  'menu.pkg',
  [('PYZ-00.pyz',
-   'C:\\Users\\33762\\Documents\\GitHub\\PolyChess\\src\\build\\menu\\PYZ-00.pyz',
+   'C:\\Users\\33762\\Desktop\\cours\\Gestion de '
+   'Projet\\PolyChess-enzo\\src\\build\\menu\\PYZ-00.pyz',
    'PYZ'),
   ('struct', 'c:\\users\\33762\\anaconda3\\lib\\struct.pyo', 'PYMODULE'),
   ('pyimod01_os_path',
@@ -29,15 +31,17 @@
    'c:\\users\\33762\\anaconda3\\lib\\site-packages\\PyInstaller\\loader\\rthooks\\pyi_rth_certifi.py',
    'PYSOURCE'),
   ('menu',
-   'C:\\Users\\33762\\Documents\\GitHub\\PolyChess\\src\\menu.py',
+   'C:\\Users\\33762\\Desktop\\cours\\Gestion de '
+   'Projet\\PolyChess-enzo\\src\\menu.py',
    'PYSOURCE'),
   ('menu.exe.manifest',
-   'C:\\Users\\33762\\Documents\\GitHub\\PolyChess\\src\\build\\menu\\menu.exe.manifest',
+   'C:\\Users\\33762\\Desktop\\cours\\Gestion de '
+   'Projet\\PolyChess-enzo\\src\\build\\menu\\menu.exe.manifest',
    'BINARY')],
  [],
  False,
  False,
- 1578646460,
+ 1578652532,
  [('run.exe',
    'c:\\users\\33762\\anaconda3\\lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit\\run.exe',
    'EXECUTABLE')])
