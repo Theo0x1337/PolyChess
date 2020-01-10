@@ -102,7 +102,7 @@ Vous pourrez jouer contre un ordinateur aux échecs. Vous commencerez la partie,
         - cloner le dépot du projet en local sur votre machine: 
             En tapant la commande suivante sur git bash : git clone https://github.com/TheoBernardin/PolyChess.git
             En allant directement sur le site https://github.com/TheoBernardin/PolyChess.git où vous pourrez le télécharger directement 
-        - Pour lancer le jeu, lancer le programme executable, a vous de jouer !
+        - Pour lancer le jeu, lancer le programme executable(...PolyChess\src\dist\menu\menu.exe) , a vous de jouer !
         
 
         
