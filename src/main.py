@@ -57,6 +57,7 @@ def IaVsIa():
                     gagnants = "blancs"
                 print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
                 print("")
+                fin_de_partie=input("Appuyer pour quitter ...")
         else:
             print("")
             print("----------------")
@@ -68,6 +69,7 @@ def IaVsIa():
                 gagnants = "blancs"
             print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
             print("")
+            fin_de_partie=input("Appuyer pour quitter ...")
         
 def PlayerVsIa():  
     finPartie = False
@@ -111,6 +113,7 @@ def PlayerVsIa():
                     gagnants = "blancs"
                 print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
                 print("")
+                fin_de_partie=input("Appuyer pour quitter ...")
         else:
             print("")
             print("----------------")
@@ -122,6 +125,7 @@ def PlayerVsIa():
                 gagnants = "blancs"
             print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
             print("")
+            fin_de_partie=input("Appuyer pour quitter ...")
 
 def PlayerVsPlayer():
     finPartie = False
@@ -164,6 +168,7 @@ def PlayerVsPlayer():
                     gagnants = "blancs"
                 print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
                 print("")
+                fin_de_partie=input("Appuyer pour quitter ...")
         else:
             print("")
             print("----------------")
@@ -175,5 +180,6 @@ def PlayerVsPlayer():
                 gagnants = "blancs"
             print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
             print("")
+            fin_de_partie=input("Appuyer pour quitter ...")
 #!!! un pion a mangé son allié !!! erreur à corrigé 
 # on peut maintenant ajouter la couleur au FEN 
