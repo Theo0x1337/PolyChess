@@ -29,7 +29,6 @@ def IaVsIa():
         iaWhite.deplacement_ia_white(echiquier)
         ech.affichage(echiquier)
         time.sleep(1)
-        #ech.choisiDeplacement(echiquier)
         FEN = ech.generatorFEN(echiquier)
         finPartie = api.testFDP(FEN,'w')[0]
         
@@ -47,6 +46,17 @@ def IaVsIa():
             FEN = ech.generatorFEN(echiquier)
             reponse = api.testFDP(FEN,'b')
             finPartie = reponse[0]
+            if finPartie == True:
+                print("")
+                print("----------------")
+                print("")
+                couleur = reponse[1]
+                if couleur == "w":
+                    gagnants = "noirs"
+                else :
+                    gagnants = "blancs"
+                print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
+                print("")
         else:
             print("")
             print("----------------")
@@ -90,6 +100,17 @@ def PlayerVsIa():
             FEN = ech.generatorFEN(echiquier)
             reponse = api.testFDP(FEN,'b')
             finPartie = reponse[0]
+            if finPartie == True:
+                print("")
+                print("----------------")
+                print("")
+                couleur = reponse[1]
+                if couleur == "w":
+                    gagnants = "noirs"
+                else :
+                    gagnants = "blancs"
+                print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
+                print("")
         else:
             print("")
             print("----------------")
@@ -132,6 +153,17 @@ def PlayerVsPlayer():
             FEN = ech.generatorFEN(echiquier)      
             reponse = api.testFDP(FEN,'b')
             finPartie = reponse[0]
+            if finPartie == True:
+                print("")
+                print("----------------")
+                print("")
+                couleur = reponse[1]
+                if couleur == "w":
+                    gagnants = "noirs"
+                else :
+                    gagnants = "blancs"
+                print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
+                print("")
         else:
             print("")
             print("----------------")
