@@ -1,72 +1,114 @@
-# Projet : Polychess  
-> Gestion de projet pour faire un jeu d'échec. 
+# Project: Polychess  
+> Project management to make a chess game. 
 
-## Règles : 
+## Rules: 
 
-### But du jeu :
+## Goal of the game:
 
-Faire échec et mat, évidemment, l’adversaire peut abandonner et vous avez la possibilité de gagner au temps.
-On dit que le Roi est en échec, lorsque la case qu’il occupe est contrôlée par une pièce adverse. Le Roi doit donc OBLIGATOIREMENT parer cet échec.
-Si le Roi ne peut parer l’échec, il perd la partie, puisqu’il est échec et mat.
+Checkmate, of course, the opponent can give up and you have the chance to win in time.
+The King is said to be in check when the square it occupies is controlled by an opponent's piece. The King must therefore MANDATORYLY parry this check.
+If the king cannot parry the check, it loses the game, since it is checkmate. 
 
-### Déplacement des pièces 
+### Moving parts 
 
-  #### pion :
+  #### pawn:
   
 ![](img/deplacement-pion.png)
 
-  #### cavalier :
+  #### knight :
   
 ![](img/deplacement-cavalier.png)
 
-  #### fou :
+  #### bishop :
   
 ![](img/deplacement-fou.png)
 
-  #### tour :
+  #### Rook :
   
 ![](img/deplacement-tour.png)
 
-  #### dame :
+  #### Lady :
   
 ![](img/deplacement-dame.png)
 
-  #### roi :
+  #### King :
   
 ![](img/deplacement-roi.png)
 
-### Règles spéciales
+### Special rules
 
-  #### La promotion 
-Quand le pion atteint la dernière rangée de l’échiquier, il se transforme en une autre pièce de sa couleur (en général une Dame). Le pion ne peut se transformer en Roi.
+  #### The promotion 
+When the pawn reaches the last row of the chessboard, it transforms into another piece of its color (usually a Queen). The pawn cannot transform into a King.
 
   #### Roque
-Le Roi se décale de deux cases, en direction d’une de ses Tours. La Tour vient sauter par dessus le Roi pour se placer juste à côté(sur une cases adjacente).
+The King moves two squares, towards one of his Rooks. The Rook jumps over the King to stand next to it (on an adjacent square).
 Conditions : 
 
-– Ni le Roi, ni la Tour concernés, ne doivent avoir bougé pendant le jeu et aucune pièce ne doit les séparer.
+- Neither the King nor the Rook concerned must have moved during the game, and no piece must separate them.
 
-– Le Roi ne peut être en échec.
+- The King may not be in check.
 
-– Aucune pièce ennemie ne doit contrôler les deux cases que le Roi parcourt pour roquer.
+- No enemy piece must control the two squares that the king travels to castling..
 
-  #### La Prise en passant 
-Un pion peut capturer un pion adverse (de colonne adjacente), si celui-ci saute deux cases, comme s’il n’avait avancé que d’une case. On dit que ce pion prend le pion ennemi “en passant”.
-
-
-
-
-
-### Déroulement d'une partie
-
-Vous pourrez jouer contre un ordinateur aux échecs. Vous commencerez la partie, qui se déroulera tour par tour, la partie se finit lorsque l'un de vous est échec et mat ou que son compteur de temps est a 0.
-
-
-### Comment utiliser notre programme ? 
+  #### The catch in passing
   
-  Pour se faire il suffit de réaliser ces actions :
+A pawn may capture an opponent's pawn (from an adjacent file), if it jumps two squares, as if it had advanced only one square. It is said that this pawn takes the enemy pawn "in passing".
+
+
+### Chess game interface
+
+![](img/interface.png)
+
+Above you can see the interface of our chess game. It is declined in console form, with a representation of pieces with a string, for example the string "Tn" represents the black rook, the string "Tb" represents the white rook. 
+As you have understood, the first letter defines the type of piece and the second its color.
+
+b: white
+
+n: black
+
+P: pawn
+
+T: rook
+
+C: knight
+
+F: bishop
+
+D: lady
+
+A: king
+
+You will then have to select a piece by entering its (x,y) coordinates: for example if you want to move the piece to (0;1) on the board you will have to type 0 then 1 in the console in this way :
+ 
+![](img/interfacePionSelec.png)
+
+Then the program shows you the list of available trips by displaying the possible arrival positions for this room as follows: way :
+
+
+![](img/interfacePionSelecPossibi.png)
+
+It will then be necessary to select a move by entering the number corresponding to it, here one chooses to advance it by one square, so one enters the value 1, and the chessboard display is updated :
+
+![](img/echiquierAJour.png)
+
+### Playing a game
+
+You will be able to play against a computer at chess. You will start the game, which will take place turn by turn, the game ends when one of you is checkmate or has a time counter of 0.
+
+
+### How to use our program? 
   
-        - cloner le dépot du projet en local sur votre machine 
+  To do so, you just have to perform these actions:
+  
+        - Create a directory on your computer to clone the git repository  
+        - clone the project repository locally on your machine: 
+            By typing the following command on git bash: git clone https://github.com/TheoBernardin/PolyChess.git.
+            By going directly to https://github.com/TheoBernardin/PolyChess.git where you can download it directly 
+        - To start the game, run the executable program PolyChess, then run the program.
+
+
+        
+
         
         
        
