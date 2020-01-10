@@ -1,44 +1,191 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Nov 28 16:51:47 2019
-
 @author: 33762
 """
 
 import echiquier as ech
-import moteur_blocage as mb
-#pieces blanches : Pb Cb Fb Tb Rb Db
-#pieces noires : Pn Cn Fn Tn Rn Dn
-
-a=['Tn','Cn','Fn','Dn','Rn','Fn','Cn','Tn']
-z=['Pn','Pn','Pn','Pn','Pn','Pn','Pn','Pn']
-e=['**','**','**','**','**','**','**','**']
-r=['**','**','**','**','**','**','**','**']
-t=['**','**','**','**','**','**','**','**']
-y=['**','**','**','**','**','**','**','**']
-u=['Pb','Pb','Pb','Pb','Pb','Pb','Pb','Pb']
-i=['Tb','Cb','Fb','Db','Rb','Fb','Cb','Tb']
+import apiSyzygy as api
+import IA_random as ia
+import IA_white_random as iaWhite
+import time
 
 
-echiquier=[a,z,e,r,t,y,u,i]
+def IaVsIa():
+    """
+    function that start a game between two AI
+    """
+    finPartie = False
+    echiquier=ech.initialiseEchiquier()
+    while finPartie == False:
+        
+        print("")
+        print("----------------")
+        print("")
+        print("Au tour de l'ordinateur 1")
+        print("")
+        print("----------------")
+        
+        ech.affichage(echiquier)
+        iaWhite.deplacement_ia_white(echiquier)
+        ech.affichage(echiquier)
+        time.sleep(1)
+        FEN = ech.generatorFEN(echiquier)
+        finPartie = api.testFDP(FEN,'w')[0]
+        
+        print("")
+        print("----------------")
+        print("")
+        print("Au tour de l'ordinateur 2")
+        print("")
+        print("----------------")
+        
+        if finPartie == False:
+            ia.deplacement_ia(echiquier)
+            ech.affichage(echiquier)
+            time.sleep(1)
+            FEN = ech.generatorFEN(echiquier)
+            reponse = api.testFDP(FEN,'b')
+            finPartie = reponse[0]
+            if finPartie == True:
+                print("")
+                print("----------------")
+                print("")
+                couleur = reponse[1]
+                if couleur == "w":
+                    gagnants = "noirs"
+                else :
+                    gagnants = "blancs"
+                print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
+                print("")
+                fin_de_partie=input("Appuyer pour quitter ...")
+        else:
+            print("")
+            print("----------------")
+            print("")
+            couleur = reponse[1]
+            if couleur == "w":
+                gagnants = "noirs"
+            else :
+                gagnants = "blancs"
+            print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
+            print("")
+            fin_de_partie=input("Appuyer pour quitter ...")
+        
+def PlayerVsIa(): 
+    """
+    function that start a game between a player and an AI
+    """
+    finPartie = False
+    echiquier=ech.initialiseEchiquier()
+    while finPartie == False:
+        
+        print("")
+        print("----------------")
+        print("")
+        print("Au tour du joueur")
+        print("")
+        print("----------------")
+        
+        ech.affichage(echiquier)
+        ech.choisiDeplacement(echiquier)
+        FEN = ech.generatorFEN(echiquier)
+        finPartie = api.testFDP(FEN,'w')[0]
+        
+        print("")
+        print("----------------")
+        print("")
+        print("Au tour de l'ordinateur")
+        print("")
+        print("----------------")
+        
+        if finPartie == False:
+            ia.deplacement_ia(echiquier)
+            ech.affichage(echiquier)
+            time.sleep(1)
+            FEN = ech.generatorFEN(echiquier)
+            reponse = api.testFDP(FEN,'b')
+            finPartie = reponse[0]
+            if finPartie == True:
+                print("")
+                print("----------------")
+                print("")
+                couleur = reponse[1]
+                if couleur == "w":
+                    gagnants = "noirs"
+                else :
+                    gagnants = "blancs"
+                print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
+                print("")
+                fin_de_partie=input("Appuyer pour quitter ...")
+        else:
+            print("")
+            print("----------------")
+            print("")
+            couleur = reponse[1]
+            if couleur == "w":
+                gagnants = "noirs"
+            else :
+                gagnants = "blancs"
+            print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
+            print("")
+            fin_de_partie=input("Appuyer pour quitter ...")
 
-ech.affichage(echiquier)
-x = int(input("X : "))
-y = int(input("y : "))
-
-nom=ech.get_NomPiece([x,y],echiquier)
-if nom=='pion' :
-    print(mb.coups_possibles_pion([x,y],echiquier,ech.get_Couleur([x,y],echiquier)))
-elif nom=='cavalier':
-    print(mb.coups_possibles_cavalier([x,y],echiquier,ech.get_Couleur([x,y],echiquier)))
-elif nom=='tour':
-    print(mb.coups_possibles_tour([x,y],echiquier,ech.get_Couleur([x,y],echiquier)))
-elif nom=='fou':
-    print(mb.coups_possibles_fou([x,y],echiquier,ech.get_Couleur([x,y],echiquier)))
-elif nom=='dame':
-    print(mb.coups_possibles_dame([x,y],echiquier,ech.get_Couleur([x,y],echiquier)))    
-elif nom=='roi':
-    print(mb.coups_possibles_roi([x,y],echiquier,ech.get_Couleur([x,y],echiquier)))
-    
-
-
+            
+def PlayerVsPlayer():
+    """
+    function that start a game between two player
+    """
+    finPartie = False
+    echiquier=ech.initialiseEchiquier()
+    while finPartie == False:
+        
+        print("")
+        print("----------------")
+        print("")
+        print("Au tour du joueur 1")
+        print("")
+        print("----------------")
+        
+        ech.affichage(echiquier)
+        ech.choisiDeplacement(echiquier)
+        FEN = ech.generatorFEN(echiquier)
+        finPartie = api.testFDP(FEN,'w')[0]
+        
+        print("")
+        print("----------------")
+        print("")
+        print("Au tour du joueur 2")
+        print("")
+        print("----------------")
+        
+        if finPartie == False:
+            ech.affichage(echiquier)
+            ech.choisiDeplacement(echiquier)
+            FEN = ech.generatorFEN(echiquier)      
+            reponse = api.testFDP(FEN,'b')
+            finPartie = reponse[0]
+            if finPartie == True:
+                print("")
+                print("----------------")
+                print("")
+                couleur = reponse[1]
+                if couleur == "w":
+                    gagnants = "noirs"
+                else :
+                    gagnants = "blancs"
+                print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
+                print("")
+                fin_de_partie=input("Appuyer pour quitter ...")
+        else:
+            print("")
+            print("----------------")
+            print("")
+            couleur = reponse[1]
+            if couleur == "w":
+                gagnants = "noirs"
+            else :
+                gagnants = "blancs"
+            print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
+            print("")
+            fin_de_partie=input("Appuyer pour quitter ...")
