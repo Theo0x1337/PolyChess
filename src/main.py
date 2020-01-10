@@ -10,10 +10,12 @@ import apiSyzygy as api
 import IA_random as ia
 import IA_white_random as iaWhite
 import time
-#pieces blanches : Pb Cb Fb Tb Rb Db
-#pieces noires : Pn Cn Fn Tn Rn Dn
+
 
 def IaVsIa():
+    """
+    function that start a game between two AI
+    """
     finPartie = False
     echiquier=ech.initialiseEchiquier()
     while finPartie == False:
@@ -71,7 +73,10 @@ def IaVsIa():
             print("")
             fin_de_partie=input("Appuyer pour quitter ...")
         
-def PlayerVsIa():  
+def PlayerVsIa(): 
+    """
+    function that start a game between a player and an AI
+    """
     finPartie = False
     echiquier=ech.initialiseEchiquier()
     while finPartie == False:
@@ -127,7 +132,11 @@ def PlayerVsIa():
             print("")
             fin_de_partie=input("Appuyer pour quitter ...")
 
+            
 def PlayerVsPlayer():
+    """
+    function that start a game between two player
+    """
     finPartie = False
     echiquier=ech.initialiseEchiquier()
     while finPartie == False:
@@ -181,5 +190,3 @@ def PlayerVsPlayer():
             print("La partie est finie ! il y a echec et mat ! Les "+gagnants+" ont gagné !")
             print("")
             fin_de_partie=input("Appuyer pour quitter ...")
-#!!! un pion a mangé son allié !!! erreur à corrigé 
-# on peut maintenant ajouter la couleur au FEN 
