@@ -104,7 +104,7 @@ You will be able to play against a computer at chess. You will start the game, w
         - clone the project repository locally on your machine: 
             By typing the following command on git bash: git clone https://github.com/TheoBernardin/PolyChess.git.
             By going directly to https://github.com/TheoBernardin/PolyChess.git where you can download it directly 
-        - To start the game, run the executable program PolyChess, then run the program.
+        - To start the game, run the executable program PolyChess (...\PolyChess\src\dist\menu\menu.exe), then run the program.
 
 
         
