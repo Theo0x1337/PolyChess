@@ -5,7 +5,7 @@ Created on Fri Nov 29 19:37:18 2019
 @author: 33762
 """
 
-#FOU
+#BISHOP
 def monterGauche(pos):
     """
     monterGauche([int,int]) => return [[int,int],...]
