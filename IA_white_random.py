@@ -66,7 +66,7 @@ def promotion(echiquier,pos_arriv):
     if pos_arriv[0][1]==7 and echiquier[pos_arriv[0]][pos_arriv[1]]=="Pn":
         echiquier[pos_arriv[0][0]][pos_arriv[0][1]]="Dn"
         
-    if pos_arriv[0][1]==0 and echiquier[pos_arriv[0]][pos_arriv[1]]=="Pb":
+    elif pos_arriv[0][1]==0 and echiquier[pos_arriv[0]][pos_arriv[1]]=="Pb":
         echiquier[pos_arriv[0][0]][pos_arriv[0][1]]="Db"      
 
 def deplacement_ia_white(echiquier):
