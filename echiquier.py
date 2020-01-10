@@ -120,6 +120,10 @@ def get_placesDispo_Noirs(echiquier):
     return res
 
 def initialiseEchiquier():
+    """
+    creates and initializes the chessboard
+    
+    """
     a=['Tn','Cn','Fn','Dn','Rn','Fn','Cn','Tn']
     z=['Pn','Pn','Pn','Pn','Pn','Pn','Pn','Pn']
     e=['**','**','**','**','**','**','**','**']
@@ -151,8 +155,17 @@ def choisiDeplacement(echiquier):
     nbCoup=afficherCoupsPossibles(coups_possibles)
     choix=demanderChoixUtilisateur(nbCoup)
     if choix == 0:
-        choisiDeplacement(echiquier)
+        choisiDeplacement(echiquier) 
+    position_arrivee = coups_possibles[choix-1]
+    deplacement(echiquier,x,y,position_arrivee[0],position_arrivee[1])
+    affichage(echiquier)
     #A faire assoscier le choix a un déplacement et appeler la fonction de déplacement du gourmand !! 
+    
+def deplacement(echiquier,x_dep,y_dep,x_arr,y_arr):
+    pion_d = echiquier[y_dep][x_dep]
+    echiquier[y_arr][x_arr] = pion_d
+    echiquier[y_dep][x_dep] = "**"
+    
     
 def afficherCoupsPossibles(coups_possibles):
     print('0=>Annuler')
@@ -167,6 +180,68 @@ def demanderChoixUtilisateur(coups_possibles):
     return choix
 
 def demandeUtilisateurPosition():
-    x = int(input("X : "))
-    y = int(input("y : "))
+    x=99
+    y=99
+    while x > 7 or x < 0 : 
+        x = int(input("X : "))
+    while y > 7 or y < 0 : 
+        y = int(input("Y : "))
     return x,y
+
+def generatorFEN(echiquier):
+    """
+    generate the fen to use the Syzygy API
+    generatorFEN([List[List[String]])
+    return ---> String
+    
+    """
+    fen = ""
+    for ligne in echiquier:
+        for case in ligne:
+            if case == "Tn":
+                fen = fen + "r"
+            if case == "Tb":
+                fen = fen + "R"
+            if case == "Cn":
+                fen = fen + "n"
+            if case == "Cb":
+                fen = fen + "N"
+            if case == "Fn":
+                fen = fen + "b"
+            if case == "Fb":
+                fen = fen + "B"
+            if case == "Dn":
+                fen = fen + "q"
+            if case == "Db":
+                fen = fen + "Q"
+            if case == "Rn":
+                fen = fen + "k"
+            if case == "Rb":
+                fen = fen + "K"
+            if case == "Pn":
+                fen = fen + "p"
+            if case == "Pb":
+                fen = fen + "P"
+            if case == "**":
+                fen = fen + "0"
+        fen = fen + "/"
+    lettres = ['r','R','n','N','b','B','q','Q','k','K','p','P','/']
+    fenIntermediaire = fen
+    while fenIntermediaire.find('0') != -1:
+        startEmpty = fenIntermediaire.find('0')
+        ends = []
+        for lettre in lettres:
+            ends.append(fenIntermediaire.find(lettre,startEmpty))
+        for i in range(0,len(ends)):
+            if ends[i] == -1:
+                ends[i] = 99
+        endEmpty = min(ends)
+        fenIntermediaire = fenIntermediaire[:startEmpty] + str(endEmpty-startEmpty) + fenIntermediaire[endEmpty:len(fenIntermediaire)]
+    return fenIntermediaire[:-1]
+  
+  
+    
+    
+    
+    
+    
