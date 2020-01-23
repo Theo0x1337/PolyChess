@@ -27,7 +27,7 @@ If the king cannot parry the check, it loses the game, since it is checkmate.
   
 ![](img/deplacement-tour.png)
 
-  #### Lady :
+  #### Queen :
   
 ![](img/deplacement-dame.png)
 
@@ -74,7 +74,7 @@ C: knight
 
 F: bishop
 
-D: lady
+D: queen
 
 A: king
 
